@@ -1,5 +1,5 @@
 module.exports = (req, res) => {
     req.session.destroy(() => {
-        res.redirect('/index1');
+        res.redirect('/');
     });
 }
