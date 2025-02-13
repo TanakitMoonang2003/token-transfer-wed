@@ -1,0 +1,29 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "react-scripts build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect": "^3.7.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "flash": "^1.1.0",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tronweb": "^6.0.1",
+    "react-scripts": "^4.0.3"
+  }
+}
