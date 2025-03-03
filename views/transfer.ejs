@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TronLink Token Transfer</title>
-
+    <title>TronLink Wallet Integration</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link href="img/favicon.ico" rel="icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +20,10 @@
     
     <link href="css/bootstrapnut.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/fotter.css" rel="stylesheet">
+
 </head>
 <body>
-
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
@@ -36,87 +39,155 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-4 py-lg-0">
                 <a href="/home1" class="nav-item nav-link">Home</a>
-                <a href="/about" class="nav-item nav-link">About</a>
-                <a href="/transfer" class="nav-item nav-link active ">Transfer</a>
+                <a href="/aboutin" class="nav-item nav-link">About</a>
+                <a href="/transfer" class="nav-item nav-link active">Transfer</a>
+                <a href="/create" class="nav-item nav-link"><i class="fas fa-wallet"></i> Create Wallet</a>
             </div>
         </div>
         <div class="h-100 d-lg-inline-flex align-items-center d-none">
-
-
             <% if (loggedIn) { %>
                 <a href="/logout" class="btn signin-btn py-3 px-4 animated slideInDown-secondary mx-3">Logout</a>
-                <% } %> 
+            <% } %> 
          
             <% if (!loggedIn) { %>
                 <a href="/login" class="btn signin-btn py-3 px-4 animated slideInDown-secondary mx-3">Sign In</a>
                 <a href="/register" class="btn btn-info py-3 px-4 animated slideInDown">Sign Up</a>
-                <% } %> 
-    
-    
+            <% } %> 
         </div>
     </nav>
     
     <!-- Navbar End -->
-     
 
-
-    <!-- TronLink Connection Section -->
-    <div class="container text-center my-5">
-        <p id="status">Not connected to TronLink.</p>
-        <p id="wallet">Wallet: Not connected</p>
-        <p id="balance">Token Balance: N/A</p>
-        <button class="btn btn-success" onclick="connectToTronLink()">Connect to TronLink</button>
+    <div class="container1">
+        <header>
+            <h1><i class="fas fa-wallet"></i> TronLink Wallet Integration</h1>
+        </header>
+        
+        <div class="card">
+            <div class="wallet-status">
+                <h2>Wallet Status</h2>
+                <p id="status" class="status-disconnected"><i class="fas fa-circle"></i> TronLink not connected</p>
+                <button id="connect-btn" onclick="connectToTronLink()">
+                    <i class="fas fa-plug"></i> Connect to TronLink
+                </button>
+                <a href="/create" class="btn btn-success mt-3">
+                    <i class="fas fa-plus-circle"></i> Create New Wallet
+                </a>
+            </div>
+            
+            <div class="wallet-info">
+                <div class="info-item">
+                    <span class="label">Address:</span>
+                    <p id="wallet" class="value">-</p>
+                </div>
+                <div class="info-item">
+                    <span class="label">Balance:</span>
+                    <p id="balance" class="value">-</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-exchange-alt"></i> Transfer Token</h2>
+            <div class="form-group">
+                <label for="recipient">Recipient Address</label>
+                <input type="text" id="recipient" placeholder="TR... Address">
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <div class="amount-input">
+                    <input type="number" id="amount" placeholder="0.00">
+                    <span class="currency">TRX</span>
+                </div>
+            </div>
+            <button id="transfer-btn" onclick="transferToken()">
+                <i class="fas fa-paper-plane"></i> Send Token
+            </button>
+        </div>
+        
+        <div class="transaction-status">
+            <h3>Transaction Status</h3>
+            <p id="transaction">No recent transactions</p>
+        </div>
     </div>
-
-    <!-- Token Transfer Section -->
-    <div class="container text-center my-5">
-        <input type="text" id="recipient" class="form-control mb-2" placeholder="Recipient Address" required>
-        <input type="number" id="amount" class="form-control mb-2" placeholder="Amount" required min="1">
-        <button id="transferButton" class="btn btn-primary" onclick="transferToken()">Transfer Tokens</button>
-        <a href="/create" class="btn btn-primary text-center my-5 animated slideInDown">Create Wallet</a>
+    <!-- Footer Section -->
+<footer class="footer-section">
+    <div class="container">
+      <div class="footer-content">
+        <div class="row">
+          <!-- About Company Section -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="footer-brand">
+              <h1 class="brand-name">
+                <img src="/assets/img/icon-1.png" alt="GroupThreeCoin Logo" class="brand-icon">
+                GroupThreeCoin
+              </h1>
+              <p class="brand-description">
+                ยินดีต้อนรับสู่ GroptreeCoin Transfer แพลตฟอร์มที่เชื่อถือได้สำหรับการโอนโทเคนที่รวดเร็วและปลอดภัยบนเครือข่าย Tron เป้าหมายของเราคือการมอบประสบการณ์ที่ใช้งานง่ายให้กับผู้ใช้ ในการส่งและรับ GroptreeCoin ได้อย่างสะดวก รวดเร็ว และโปร่งใสในทุกธุรกรรม
+              </p>
+            </div>
+          </div>
+          
+          <!-- Newsletter Section -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="footer-newsletter">
+              <h5 class="footer-title">Newsletter</h5>
+              <p>สมัครรับจดหมายข่าวเพื่อรับข่าวสารล่าสุดเกี่ยวกับ GroupThreeCoin และการอัปเดตเทคโนโลยี</p>
+              <div class="newsletter-form">
+                <input type="email" class="form-input" placeholder="อีเมลของคุณ">
+                <button type="button" class="submit-btn">สมัคร</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Information -->
+          <div class="col-lg-6 col-md-6 mt-4">
+            <div class="footer-contact">
+              <h5 class="footer-title">ติดต่อเรา</h5>
+              <ul class="contact-list">
+                <li>
+                  <i class="contact-icon fas fa-map-marker-alt"></i>
+                  <span>9 ถนนเวียงแก้ว ตำบลศรีภูมิ อำเภอเมืองเชียงใหม่ เชียงใหม่ 50200</span>
+                </li>
+                <li>
+                  <i class="contact-icon fas fa-phone-alt"></i>
+                  <span>053 217 708</span>
+                </li>
+                <li>
+                  <i class="contact-icon fas fa-envelope"></i>
+                  <span>ctc@cmtc.ac.th</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Social Media Section -->
+          <div class="col-lg-6 col-md-6 mt-4">
+            <div class="footer-social">
+              <h5 class="footer-title">ติดตามเรา</h5>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100057493567949" class="social-icon facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.youtube.com/@%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%97%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%84%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%8C9%E0%B8%91" class="social-icon youtube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright Section -->
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2025 GroupThreeCoin. All Rights Reserved.</p>
+        </div>
+      </div>
     </div>
-    
-    
-    
-    
-    
+  </footer>
 
-   
-    <div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <h1 class="text-primary mb-4"><img class="img-fluid me-2" src="/assets/img/icon-1.png" alt="" style="width: 45px;">GroupThreeCoin</h1>
-                    <span>ยินดีต้อนรับสู่ GroptreeCoin Transfer แพลตฟอร์มที่เชื่อถือได้สำหรับการโอนโทเคนที่รวดเร็วและปลอดภัยบนเครือข่าย Tron เป้าหมายของเราคือการมอบประสบการณ์ที่ใช้งานง่ายให้กับผู้ใช้ ในการส่งและรับ GroptreeCoin ได้อย่างสะดวก รวดเร็ว และโปร่งใสในทุกธุรกรรม</span>
-                </div>
-                <div class="col-md-6">
-                    <h5 class="mb-4">Newsletter</h5>
-                    <p>Clita erat ipsum et lorem et sit, sed stet lorem sit clita.</p>
-                    <div class="position-relative">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>9 ถนนเวียงแก้ว ตำบลศรีภูมิ อำเภอเมืองเชียงใหม่ เชียงใหม่ 50200</p>
-                    <p><i class="fa fa-phone-alt me-3"></i>053 217 708</p>
-                    <p><i class="fa fa-envelope me-3"></i>ctc@cmtc.ac.th</p>
-                </div>
-           
-                 
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Follow Us</h5>
-                    <div class="d-flex">
-                       
-                        <a class="btn btn-square rounded-circle me-1" href="https://www.facebook.com/profile.php?id=100057493567949" ><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://www.youtube.com/@%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%97%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%84%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%8C9%E0%B8%91"><i class="fab fa-youtube"></i></a>
-                      
-                    </div>
-               
-    <!-- Footer End -->
-
+    <script src="https://cdn.jsdelivr.net/npm/tronweb/dist/TronWeb.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>

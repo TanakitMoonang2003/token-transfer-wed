@@ -1,16 +1,14 @@
 const User = require('../models/User');
 
 module.exports = (req, res) => {
-    User.create(req.body).then (() => {
+    User.create(req.body).then((user) => {
         console.log('User registered successfully!');
-        res.redirect('/index1');
-    }) .catch((error) => {
-
-
-
-        // console.log(error.errors);
-
-
+        
+        
+        req.session.userId = user._id; 
+        
+        res.redirect('/home1'); 
+    }).catch((error) => {
         if (error){
             const validationErrors = Object.keys(error.errors).map(key => error.errors[key].message);
             req.flash('validationErrors', validationErrors);

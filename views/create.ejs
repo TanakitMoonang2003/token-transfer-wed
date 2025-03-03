@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -26,6 +26,11 @@
     <!-- Custom CSS -->
     <link href="css/bootstrapnut.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/create.css" rel="stylesheet">
+    <link href="css/fotter.css" rel="stylesheet">
+    
+
+    
 </head>
 <body>
     <!-- Navbar Start -->
@@ -41,9 +46,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="/index1" class="nav-item nav-link">Home</a>
-                <a href="/about" class="nav-item nav-link">About</a>
-                <a href="/transfer" class="nav-item nav-link active">Transfer</a>
+                <a href="/home1" class="nav-item nav-link">Home</a>
+                <a href="/aboutin" class="nav-item nav-link">About</a>
+                <a href="/transfer" class="nav-item nav-link">Transfer</a>
+                <a href="/create" class="nav-item nav-link active"><i class="fas fa-wallet"></i> Create Wallet</a>
             </div>
         </div>
         <div class="h-100 d-lg-inline-flex align-items-center d-none">
@@ -59,55 +65,219 @@
     <!-- Navbar End -->
 
     <!-- Main Content -->
-    <div class="container mt-5">
-        <h1>Create New Tron Wallet</h1>
-        <button onclick="createNewWallet()" class="btn btn-primary">Create New Wallet</button>
-
-        <div id="walletDetails" style="display: none;" class="mt-4">
-            <h2>New Wallet Details</h2>
-            <p><strong>Address:</strong> <span id="walletAddress"></span></p>
-            <p><strong>Private Key:</strong> <span id="privateKey"></span></p>
-            <p><strong>Public Key:</strong> <span id="publicKey"></span></p>
-        </div>
-    </div>
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-md-6">
-                    <h1 class="text-primary mb-4">
-                        <img class="img-fluid me-2" src="/assets/img/icon-1.png" alt="" style="width: 45px;">GroupThreeCoin
-                    </h1>
-                    <span>ยินดีต้อนรับสู่ GroptreeCoin Transfer แพลตฟอร์มที่เชื่อถือได้สำหรับการโอนโทเคนที่รวดเร็วและปลอดภัยบนเครือข่าย Tron เป้าหมายของเราคือการมอบประสบการณ์ที่ใช้งานง่ายให้กับผู้ใช้ ในการส่งและรับ GroptreeCoin ได้อย่างสะดวก รวดเร็ว และโปร่งใสในทุกธุรกรรม</span>
+    <div class="container1 mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="page-header">
+                    <h1 class="animate__animated animate__fadeInDown"><i class="fas fa-wallet text-primary me-2"></i>Create Your Tron Wallet</h1>
+                    <p class="animate__animated animate__fadeIn">Generate a new secure Tron blockchain wallet to send, receive, and store your crypto assets with confidence.</p>
                 </div>
-                <div class="col-md-6">
-                    <h5 class="mb-4">Newsletter</h5>
-                    <p>Clita erat ipsum et lorem et sit, sed stet lorem sit clita.</p>
-                    <div class="position-relative">
-                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                
+                <div class="wallet-container animate__animated animate__fadeInUp">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-key key-icon"></i>
+                        <h3 class="mb-3">Generate New Wallet</h3>
+                        <p class="text-muted">Click the button below to create a new Tron wallet with a unique address and keys.</p>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt me-3"></i>9 ถนนเวียงแก้ว ตำบลศรีภูมิ อำเภอเมืองเชียงใหม่ เชียงใหม่ 50200</p>
-                    <p><i class="fa fa-phone-alt me-3"></i>053 217 708</p>
-                    <p><i class="fa fa-envelope me-3"></i>ctc@cmtc.ac.th</p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="mb-4">Follow Us</h5>
-                    <div class="d-flex">
-                        <a class="btn btn-square rounded-circle me-1" href="https://www.facebook.com/profile.php?id=100057493567949"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square rounded-circle me-1" href="https://www.youtube.com/@%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%97%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%84%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%8C9%E0%B8%91"><i class="fab fa-youtube"></i></a>
+                    
+                    <div class="text-center">
+                        <button id="createWalletBtn" onclick="createNewWallet()" class="btn create-wallet-btn">
+                            <i class="fas fa-plus-circle me-2"></i>Create New Wallet
+                        </button>
+                    </div>
+                    
+                    <div id="successAnimation" class="success-animation mt-4">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                        <h4 class="mt-3 text-success">Wallet Created Successfully!</h4>
+                    </div>
+
+                    <div id="walletDetails" style="display: none;" class="wallet-details">
+                        <h4 class="mb-4">Your New Wallet Details</h4>
+                        
+                        <div class="wallet-detail-item">
+                            <span class="detail-label">Wallet Address</span>
+                            <div class="detail-value">
+                                <span id="walletAddress"></span>
+                                <button class="copy-btn" onclick="copyToClipboard('walletAddress')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="wallet-detail-item">
+                            <span class="detail-label">Private Key</span>
+                            <div class="detail-value">
+                                <span id="privateKey"></span>
+                                <button class="copy-btn" onclick="copyToClipboard('privateKey')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="wallet-detail-item">
+                            <span class="detail-label">Public Key</span>
+                            <div class="detail-value">
+                                <span id="publicKey"></span>
+                                <button class="copy-btn" onclick="copyToClipboard('publicKey')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="security-notice">
+                            <h5><i class="fas fa-shield-alt me-2"></i>Security Notice</h5>
+                            <p class="mb-0">Store your private key securely. Anyone with access to your private key can control your funds. Never share it with others.</p>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-primary" onclick="saveWalletDetails()">
+                                <i class="fas fa-download me-2"></i>Download Wallet Info
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
+
+   <!-- Footer Section -->
+<footer class="footer-section">
+    <div class="container">
+      <div class="footer-content">
+        <div class="row">
+          <!-- About Company Section -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="footer-brand">
+              <h1 class="brand-name">
+                <img src="/assets/img/icon-1.png" alt="GroupThreeCoin Logo" class="brand-icon">
+                GroupThreeCoin
+              </h1>
+              <p class="brand-description">
+                ยินดีต้อนรับสู่ GroptreeCoin Transfer แพลตฟอร์มที่เชื่อถือได้สำหรับการโอนโทเคนที่รวดเร็วและปลอดภัยบนเครือข่าย Tron เป้าหมายของเราคือการมอบประสบการณ์ที่ใช้งานง่ายให้กับผู้ใช้ ในการส่งและรับ GroptreeCoin ได้อย่างสะดวก รวดเร็ว และโปร่งใสในทุกธุรกรรม
+              </p>
+            </div>
+          </div>
+          
+          <!-- Newsletter Section -->
+          <div class="col-md-6 mb-4 mb-md-0">
+            <div class="footer-newsletter">
+              <h5 class="footer-title">Newsletter</h5>
+              <p>สมัครรับจดหมายข่าวเพื่อรับข่าวสารล่าสุดเกี่ยวกับ GroupThreeCoin และการอัปเดตเทคโนโลยี</p>
+              <div class="newsletter-form">
+                <input type="email" class="form-input" placeholder="อีเมลของคุณ">
+                <button type="button" class="submit-btn">สมัคร</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Information -->
+          <div class="col-lg-6 col-md-6 mt-4">
+            <div class="footer-contact">
+              <h5 class="footer-title">ติดต่อเรา</h5>
+              <ul class="contact-list">
+                <li>
+                  <i class="contact-icon fas fa-map-marker-alt"></i>
+                  <span>9 ถนนเวียงแก้ว ตำบลศรีภูมิ อำเภอเมืองเชียงใหม่ เชียงใหม่ 50200</span>
+                </li>
+                <li>
+                  <i class="contact-icon fas fa-phone-alt"></i>
+                  <span>053 217 708</span>
+                </li>
+                <li>
+                  <i class="contact-icon fas fa-envelope"></i>
+                  <span>ctc@cmtc.ac.th</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Social Media Section -->
+          <div class="col-lg-6 col-md-6 mt-4">
+            <div class="footer-social">
+              <h5 class="footer-title">ติดตามเรา</h5>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=100057493567949" class="social-icon facebook">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.youtube.com/@%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B9%80%E0%B8%97%E0%B8%84%E0%B8%99%E0%B8%B4%E0%B8%84%E0%B9%80%E0%B8%8A%E0%B8%B5%E0%B8%A2%E0%B8%87%E0%B9%83%E0%B8%AB%E0%B8%A1%E0%B9%88-%E0%B8%8C9%E0%B8%91" class="social-icon youtube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Copyright Section -->
+      <div class="footer-bottom">
+        <div class="copyright">
+          <p>&copy; 2025 GroupThreeCoin. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
     <!-- External JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="/js/CreateTronWallet.js"></script>
+    
+    <script>
+        function createNewWallet() {
+            // This function would be implemented in your CreateTronWallet.js file
+            // Here we're just simulating the display change for demonstration
+            
+            document.getElementById('createWalletBtn').disabled = true;
+            document.getElementById('createWalletBtn').innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Generating...';
+            
+            // Simulate API call delay
+            setTimeout(function() {
+                // Show success animation
+                document.getElementById('successAnimation').style.display = 'block';
+                
+                // After animation, show wallet details
+                setTimeout(function() {
+                    document.getElementById('walletAddress').textContent = 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t';
+                    document.getElementById('privateKey').textContent = '57c9dbe4eff543b28614d5f2ad039d3d9b397dd918b5bd82e54bc5c73409c447';
+                    document.getElementById('publicKey').textContent = '041e67a6015655bb12a0d702935cb550c9afe927f79e38f15b34c98e84af23dc2a5bedb336b83ce4f74fd97f68eea2fa0e0f84e1c5e91e83edde3e3e9a8dbccd36';
+                    
+                    document.getElementById('walletDetails').style.display = 'block';
+                    document.getElementById('createWalletBtn').innerHTML = '<i class="fas fa-check-circle me-2"></i>Wallet Created';
+                }, 1500);
+                
+            }, 2000);
+        }
+        
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(function() {
+                // Show copy success feedback
+                const btn = event.currentTarget;
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i>';
+                
+                setTimeout(function() {
+                    btn.innerHTML = originalContent;
+                }, 1500);
+            });
+        }
+        
+        function saveWalletDetails() {
+            const address = document.getElementById('walletAddress').textContent;
+            const privateKey = document.getElementById('privateKey').textContent;
+            const publicKey = document.getElementById('publicKey').textContent;
+            
+            const content = `Tron Wallet Details\n\nAddress: ${address}\nPrivate Key: ${privateKey}\nPublic Key: ${publicKey}\n\nIMPORTANT: Keep this information secure and never share your private key.`;
+            
+            const blob = new Blob([content], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'tron-wallet-details.txt';
+            link.click();
+        }
+    </script>
 </body>
 </html>
